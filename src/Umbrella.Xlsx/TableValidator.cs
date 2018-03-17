@@ -18,7 +18,6 @@ namespace Umbrella.Xlsx
 		/// <summary>
 		/// extracts the dataset from table stored inside sheet name
 		/// </summary>
-		/// <param name="sheetName"></param>
 		/// <returns></returns>
 		public List<string> ValidateTable(ExcelTableDescriptor tblDescriptor, DataTable data)
 		{

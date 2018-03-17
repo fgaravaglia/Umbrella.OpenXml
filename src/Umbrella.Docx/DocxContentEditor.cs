@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Umbrella.Docx.Helpers;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
+using Umbrella.Docx.Helpers;
 using Table = DocumentFormat.OpenXml.Wordprocessing.Table;
 using TableCell = DocumentFormat.OpenXml.Wordprocessing.TableCell;
 using TableRow = DocumentFormat.OpenXml.Wordprocessing.TableRow;
@@ -12,30 +12,30 @@ using TableRow = DocumentFormat.OpenXml.Wordprocessing.TableRow;
 namespace Umbrella.Docx
 {
 	/// <summary>
-	/// Class to edit docx file :
-	/// <code>
-	/// string folder = @"C:\Temp\Innova";
-	/// string template = "TemplateFattura.docx";
-	/// DocxContentEditor editor = new DocxContentEditor().SelectFile(folder, template).OpenFile()
-	/// 	.UpdateProperty("_DISPLAY_NAME", "Sartorip.")
-	/// 	.UpdateProperty("_ADDRESS", "via Matteotti, 20")
-	/// 	.UpdateProperty("_CAP", "20017")
-	/// 	.UpdateProperty("_CITY", "Rho (MI)")
-	/// 	.UpdateProperty("_CUSTOMER_DISPLAY_NAME", "Giudici S.r.l.")
-	/// 	.UpdateProperty("_CUSTOMER_ADDRESS", "Via Matteotti, 123")
-	/// 	.UpdateProperty("_CUSTOMER_CAP", "20017")
-	/// 	.UpdateProperty("_CUSTOMER_CITY", "Rho (MI)")
-	/// 	.UpdateProperty("_ADDITIONAL_INFO", null)
-	/// 	.UpdateProperty("_BILLING_DATE", "01/12/2017")
-	/// 	.UpdateProperty("_BILLING_NUMBER", "133")
-	/// 	.AddRowsToTable<List<string>>("Tabella fattura", new List<List<string>>()
-	/// 								{
-	/// 											new List<string>() { "1", "My fake descr", "2.50 Euro", "2.50 Euro"},
-	/// 											new List<string>() { "2", "My fake descr #2", "2.00 Euro", "4.00 Euro"},
-	/// 								})
-	/// 	.SaveAs("fattura01.docx");
-	/// </code>
+	/// Class to edit docx file
 	/// </summary>
+	///// <example>
+	///// string folder = @"C:\Temp\Innova";
+	///// string template = "TemplateFattura.docx";
+	///// DocxContentEditor editor = new DocxContentEditor().SelectFile(folder, template).OpenFile()
+	///// 	.UpdateProperty("_DISPLAY_NAME", "Sartorip.")
+	///// 	.UpdateProperty("_ADDRESS", "via Matteotti, 20")
+	///// 	.UpdateProperty("_CAP", "20017")
+	///// 	.UpdateProperty("_CITY", "Rho (MI)")
+	///// 	.UpdateProperty("_CUSTOMER_DISPLAY_NAME", "Giudici S.r.l.")
+	///// 	.UpdateProperty("_CUSTOMER_ADDRESS", "Via Matteotti, 123")
+	///// 	.UpdateProperty("_CUSTOMER_CAP", "20017")
+	///// 	.UpdateProperty("_CUSTOMER_CITY", "Rho (MI)")
+	///// 	.UpdateProperty("_ADDITIONAL_INFO", null)
+	///// 	.UpdateProperty("_BILLING_DATE", "01/12/2017")
+	///// 	.UpdateProperty("_BILLING_NUMBER", "133")
+	///// 	.AddRowsToTable<List<string>>("Tabella fattura", new List<List<string>>()
+	///// 								{
+	///// 											new List<string>() { "1", "My fake descr", "2.50 Euro", "2.50 Euro"},
+	///// 											new List<string>() { "2", "My fake descr #2", "2.00 Euro", "4.00 Euro"},
+	///// 								})
+	///// 	.SaveAs("fattura01.docx");
+	///// </example>
 	public class DocxContentEditor
 	{
 		string _TargetFolder;
@@ -45,26 +45,41 @@ namespace Umbrella.Docx
 		private Dictionary<string, object> _CustomPropertiesToUpdate;
 		private Dictionary<string, IEnumerable<object>> _TablesToUpdate;
 
+		/// <summary>
+		/// Default COnstructor
+		/// </summary>
 		public DocxContentEditor()
 		{
 			this._CustomPropertiesToAdd = new Dictionary<string, object>();
 			this._CustomPropertiesToUpdate = new Dictionary<string, object>();
 			this._TablesToUpdate = new Dictionary<string, IEnumerable<object>>();
 		}
-
+		/// <summary>
+		/// Takes the input file as source
+		/// </summary>
+		/// <param name="path"></param>
+		/// <param name="fileName"></param>
+		/// <returns></returns>
 		public DocxContentEditor SelectFile(string path, string fileName)
 		{
 			_TargetFolder = path;
 			_FileName = fileName;
 			return this;
 		}
-
+		/// <summary>
+		/// Opens the file and reads the content
+		/// </summary>
+		/// <returns></returns>
 		public DocxContentEditor OpenFile()
 		{
 			this._DocumentContent = File.ReadAllBytes(System.IO.Path.Combine(this._TargetFolder, this._FileName));
 			return this;
 		}
-
+		/// <summary>
+		/// Saves as file
+		/// </summary>
+		/// <param name="fileName"></param>
+		/// <returns></returns>
 		public DocxContentEditor SaveAs(string fileName)
 		{
 			string outputFullpath = System.IO.Path.Combine(_TargetFolder, fileName);
@@ -124,9 +139,12 @@ namespace Umbrella.Docx
 			}
 			return this;
 		}
-
-
-
+		/// <summary>
+		/// Add DocProperty to file
+		/// </summary>
+		/// <param name="propertyName"></param>
+		/// <param name="value"></param>
+		/// <returns></returns>
 		public DocxContentEditor AddProperty(string propertyName, string value)
 		{
 			if (this._CustomPropertiesToAdd.ContainsKey(propertyName))
@@ -134,6 +152,12 @@ namespace Umbrella.Docx
 			this._CustomPropertiesToAdd.Add(propertyName, value);
 			return this;
 		}
+		/// <summary>
+		/// Updates the value of Doc Property
+		/// </summary>
+		/// <param name="propertyName"></param>
+		/// <param name="value"></param>
+		/// <returns></returns>
 		public DocxContentEditor UpdateProperty(string propertyName, string value)
 		{
 			if (this._CustomPropertiesToUpdate.ContainsKey(propertyName))
@@ -141,7 +165,13 @@ namespace Umbrella.Docx
 			this._CustomPropertiesToUpdate.Add(propertyName, value);
 			return this;
 		}
-
+		/// <summary>
+		/// Add rows to table
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="tableDescription"></param>
+		/// <param name="rows"></param>
+		/// <returns></returns>
 		public DocxContentEditor AddRowsToTable<T>(string tableDescription, IEnumerable<T> rows)
 		{
 			if (this._TablesToUpdate.ContainsKey(tableDescription))

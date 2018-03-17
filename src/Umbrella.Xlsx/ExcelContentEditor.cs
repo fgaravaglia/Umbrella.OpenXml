@@ -14,73 +14,74 @@ namespace Umbrella.Xlsx
 {
 	/// <summary>
 	/// Class to edit excel 2007 content. Examples:
-	/// <code>
-	/// string folder = @"C:\Temp\Innova";
-	///var table = new ExcelTableDescriptor()
-	///{
-	///	Name = "TestTable",
-	///	SheetName = "Sheet01",
-	///	Columns = new List<ExcelColumnDescriptor>()
-	///						{
-	///							new ExcelColumnDescriptor() { Name ="COL1", HeaderText="COl #1", ColumnType = ExcelColumnDescriptor.EnumColumnType.String },
-	///							new ExcelColumnDescriptor() { Name ="COL2", HeaderText="COl #2", ColumnType = ExcelColumnDescriptor.EnumColumnType.Number },
-	///							new ExcelColumnDescriptor() { Name ="COL3", HeaderText="COl #3", ColumnType = ExcelColumnDescriptor.EnumColumnType.Boolean },
-	///							new ExcelColumnDescriptor() { Name ="COL4", HeaderText="COl #4", ColumnType = ExcelColumnDescriptor.EnumColumnType.String }
-	///						}
-	///};
-	///
-	///ExcelContentEditor editor = new ExcelContentEditor(CultureInfo.InvariantCulture)
-	///		.SelectFolder(folder)
-	///		.AddSheetTable(table)
-	///		.FillTable("TestTable", new List<ExcelDataRowDescriptor>()
-	///		{
-	///						new ExcelDataRowDescriptor() {  RowNumber = 1 }.AddCell("COL1", "asjhg").AddCell("COL2", 22).AddCell("COL3", true).AddCell("COL4", DateTime.Now.ToString()),
-	///						new ExcelDataRowDescriptor() {  RowNumber = 2 }.AddCell("COL1", "asjhg").AddCell("COL2", 22.5).AddCell("COL3", null).AddCell("COL4", null)
-	///		})
-	///		.SaveAs("Test.xlsx");
-	///
-	///
-	///ExcelContentEditor reader = new ExcelContentEditor(CultureInfo.InvariantCulture);
-	///var errors = reader.SelectFile(folder, "Test.xlsx")
-	///			.OpenFile()
-	///			.ReadTableFromSheet("Sheet01", new DataTableDelimiter())
-	///			.ValidateTable(table);
-	/// </code>
-	/// To read an excel file instead:
-	/// <code>
-	/// string folder = @"C:\Temp\Innova";
-	///var table = new ExcelTableDescriptor()
-	///{
-	///	Name = "WI",
-	///	SheetName = "Work Items",
-	///	Columns = new List<ExcelColumnDescriptor>()
-	///						{
-	///							new ExcelColumnDescriptor() { Name ="CR", HeaderText="CR", ColumnType = ExcelColumnDescriptor.EnumColumnType.String },
-	///							new ExcelColumnDescriptor() { Name ="Title", HeaderText="Title", ColumnType = ExcelColumnDescriptor.EnumColumnType.String },
-	///							new ExcelColumnDescriptor() { Name ="Customer", HeaderText="Customer", ColumnType = ExcelColumnDescriptor.EnumColumnType.String },
-	///							new ExcelColumnDescriptor() { Name ="Priority", HeaderText="Priority", ColumnType = ExcelColumnDescriptor.EnumColumnType.String },
-	///							new ExcelColumnDescriptor() { Name ="Status", HeaderText="Status", ColumnType = ExcelColumnDescriptor.EnumColumnType.String },
-	///							new ExcelColumnDescriptor() { Name ="Assegnee", HeaderText="Assegnee", ColumnType = ExcelColumnDescriptor.EnumColumnType.String },
-	///							new ExcelColumnDescriptor() { Name ="Effort", HeaderText="Effort [h]", ColumnType = ExcelColumnDescriptor.EnumColumnType.String },
-	///							new ExcelColumnDescriptor() { Name ="ActualEffort", HeaderText="Actual Effort [h]", ColumnType = ExcelColumnDescriptor.EnumColumnType.String },
-	///							new ExcelColumnDescriptor() { Name ="Delta", HeaderText="Delta Effort", ColumnType = ExcelColumnDescriptor.EnumColumnType.String }
-	///						}
-	///};
-	///
-	///ExcelContentEditor reader = new ExcelContentEditor(CultureInfo.InvariantCulture);
-	///var errors = reader.SelectFile(folder, "TimeTrackingTemplate.xlsx")
-	///			.OpenFile()
-	///			.ReadTableFromSheet("Work Items", new DataTableDelimiter())
-	///			.ValidateTable(table);
-	///
-	///		if (errors.Count == 0)
-	///		{
-	///			var dt = reader.GetTypedTable(table);
-	///}
-	/// 
-	/// </code>
-	/// 
 	/// </summary>
+	///// <code>
+	///// string folder = @"C:\Temp\Innova";
+	/////var table = new ExcelTableDescriptor()
+	/////{
+	/////	Name = "TestTable",
+	/////	SheetName = "Sheet01",
+	/////	Columns = new List<ExcelColumnDescriptor>()
+	/////						{
+	/////							new ExcelColumnDescriptor() { Name ="COL1", HeaderText="COl #1", ColumnType = ExcelColumnDescriptor.EnumColumnType.String },
+	/////							new ExcelColumnDescriptor() { Name ="COL2", HeaderText="COl #2", ColumnType = ExcelColumnDescriptor.EnumColumnType.Number },
+	/////							new ExcelColumnDescriptor() { Name ="COL3", HeaderText="COl #3", ColumnType = ExcelColumnDescriptor.EnumColumnType.Boolean },
+	/////							new ExcelColumnDescriptor() { Name ="COL4", HeaderText="COl #4", ColumnType = ExcelColumnDescriptor.EnumColumnType.String }
+	/////						}
+	/////};
+	/////
+	/////ExcelContentEditor editor = new ExcelContentEditor(CultureInfo.InvariantCulture)
+	/////		.SelectFolder(folder)
+	/////		.AddSheetTable(table)
+	/////		.FillTable("TestTable", new List<ExcelDataRowDescriptor>()
+	/////		{
+	/////						new ExcelDataRowDescriptor() {  RowNumber = 1 }.AddCell("COL1", "asjhg").AddCell("COL2", 22).AddCell("COL3", true).AddCell("COL4", DateTime.Now.ToString()),
+	/////						new ExcelDataRowDescriptor() {  RowNumber = 2 }.AddCell("COL1", "asjhg").AddCell("COL2", 22.5).AddCell("COL3", null).AddCell("COL4", null)
+	/////		})
+	/////		.SaveAs("Test.xlsx");
+	/////
+	/////
+	/////ExcelContentEditor reader = new ExcelContentEditor(CultureInfo.InvariantCulture);
+	/////var errors = reader.SelectFile(folder, "Test.xlsx")
+	/////			.OpenFile()
+	/////			.ReadTableFromSheet("Sheet01", new DataTableDelimiter())
+	/////			.ValidateTable(table);
+	///// </code>
+	///// To read an excel file instead:
+	///// <code>
+	///// string folder = @"C:\Temp\Innova";
+	/////var table = new ExcelTableDescriptor()
+	/////{
+	/////	Name = "WI",
+	/////	SheetName = "Work Items",
+	/////	Columns = new List<ExcelColumnDescriptor>()
+	/////						{
+	/////							new ExcelColumnDescriptor() { Name ="CR", HeaderText="CR", ColumnType = ExcelColumnDescriptor.EnumColumnType.String },
+	/////							new ExcelColumnDescriptor() { Name ="Title", HeaderText="Title", ColumnType = ExcelColumnDescriptor.EnumColumnType.String },
+	/////							new ExcelColumnDescriptor() { Name ="Customer", HeaderText="Customer", ColumnType = ExcelColumnDescriptor.EnumColumnType.String },
+	/////							new ExcelColumnDescriptor() { Name ="Priority", HeaderText="Priority", ColumnType = ExcelColumnDescriptor.EnumColumnType.String },
+	/////							new ExcelColumnDescriptor() { Name ="Status", HeaderText="Status", ColumnType = ExcelColumnDescriptor.EnumColumnType.String },
+	/////							new ExcelColumnDescriptor() { Name ="Assegnee", HeaderText="Assegnee", ColumnType = ExcelColumnDescriptor.EnumColumnType.String },
+	/////							new ExcelColumnDescriptor() { Name ="Effort", HeaderText="Effort [h]", ColumnType = ExcelColumnDescriptor.EnumColumnType.String },
+	/////							new ExcelColumnDescriptor() { Name ="ActualEffort", HeaderText="Actual Effort [h]", ColumnType = ExcelColumnDescriptor.EnumColumnType.String },
+	/////							new ExcelColumnDescriptor() { Name ="Delta", HeaderText="Delta Effort", ColumnType = ExcelColumnDescriptor.EnumColumnType.String }
+	/////						}
+	/////};
+	/////
+	/////ExcelContentEditor reader = new ExcelContentEditor(CultureInfo.InvariantCulture);
+	/////var errors = reader.SelectFile(folder, "TimeTrackingTemplate.xlsx")
+	/////			.OpenFile()
+	/////			.ReadTableFromSheet("Work Items", new DataTableDelimiter())
+	/////			.ValidateTable(table);
+	/////
+	/////		if (errors.Count == 0)
+	/////		{
+	/////			var dt = reader.GetTypedTable(table);
+	/////}
+	///// 
+	///// </code>
+	///// 
+	///// </summary>
 	public class ExcelContentEditor
 	{
 		#region Fields
@@ -100,9 +101,13 @@ namespace Umbrella.Xlsx
 		#endregion
 
 		#region Properties
-
+		/// <summary>
+		/// Read file as byte[]
+		/// </summary>
 		public byte[] DocumentContent { get { return _DocumentContent; } }
-
+		/// <summary>
+		/// Read data as Table
+		/// </summary>
 		public DataTable ReadData { get { return _Data; } }
 
 		#endregion
@@ -115,6 +120,12 @@ namespace Umbrella.Xlsx
 			this._CellConverter = converter;
 
 		}
+
+		/// <summary>
+		/// Default Constructor
+		/// </summary>
+		/// <param name="culture"></param>
+		/// <param name="dateFormat"></param>
 		public ExcelContentEditor(CultureInfo culture, string dateFormat) : this(new CellConverter(culture, dateFormat))
 		{
 			_HeaderStyle = new Style()
@@ -128,20 +139,28 @@ namespace Umbrella.Xlsx
 
 			this._Validator = new TableValidator();
 		}
-
+		/// <summary>
+		/// Seelcts the folder to read files
+		/// </summary>
+		/// <param name="path"></param>
+		/// <returns></returns>
 		public ExcelContentEditor SelectFolder(string path)
 		{
 			this._TargetFolder = path;
 			return this;
 		}
-
+		/// <summary>
+		/// Selets the file as input
+		/// </summary>
+		/// <param name="path"></param>
+		/// <param name="fileName"></param>
+		/// <returns></returns>
 		public ExcelContentEditor SelectFile(string path, string fileName)
 		{
 			_TargetFolder = path;
 			_FileName = fileName;
 			return this;
 		}
-
 		/// <summary>
 		/// It adds an empty sheet
 		/// </summary>
@@ -318,6 +337,7 @@ namespace Umbrella.Xlsx
 		/// extracts the dataset from table stored inside sheet name
 		/// </summary>
 		/// <param name="sheetName"></param>
+		/// <param name="delimiter">Deleimiter to read properly the sheet</param>
 		/// <returns></returns>
 		public ExcelContentEditor ReadTableFromSheet(string sheetName, DataTableDelimiter delimiter)
 		{
@@ -387,7 +407,7 @@ namespace Umbrella.Xlsx
 		/// <summary>
 		/// extracts the dataset from table stored inside sheet name
 		/// </summary>
-		/// <param name="sheetName"></param>
+		/// <param name="tblDescriptor"></param>
 		/// <returns></returns>
 		public List<string> ValidateTable(ExcelTableDescriptor tblDescriptor)
 		{

@@ -9,3 +9,5 @@
 /src/Umbrella.Xlsx.Tests/obj/Debug
 /src/Umbrella.Xlsx.Tests/bin/Debug
 /src/Umbrella.Xlsx.Tests/OutputFiles/XlsxFileWriterTest_WriteFileWithFormulaSucceeded.xlsx
+/Bin/Umbrella.Xlsx.XML
+/Bin/Umbrella.Docx.XML
