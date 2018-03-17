@@ -1,6 +1,6 @@
 # Umbrella.OpenXml
 Library to manage Open Xml files like Xlsx or Docx
 
-Current Version: 1.0
+Current Version: <b>1.0</b>
 
-Release Date:    1st April 2018
+Release Date:    <i>1st April 2018</i>
