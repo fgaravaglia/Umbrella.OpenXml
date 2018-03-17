@@ -3,3 +3,9 @@
 ################################################################################
 
 /src/Umbrella.Docx/bin
+/src/Umbrella.Docx/obj/Debug
+/src/Umbrella.Xlsx/obj/Debug
+/src/Umbrella.Xlsx/bin
+/src/Umbrella.Xlsx.Tests/obj/Debug
+/src/Umbrella.Xlsx.Tests/bin/Debug
+/src/Umbrella.Xlsx.Tests/OutputFiles/XlsxFileWriterTest_WriteFileWithFormulaSucceeded.xlsx
