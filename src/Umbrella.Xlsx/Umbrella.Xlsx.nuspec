@@ -1,0 +1,18 @@
+﻿<?xml version="1.0"?>
+<package >
+	<metadata>
+		<id>$id$</id>
+		<version>$version$</version>
+		<title>$title$</title>
+		<authors>F. Garavaglia</authors>
+		<owners>FG $company</owners>
+		<licenseUrl>https://github.com/fgaravaglia/Umbrella.OpenXml</licenseUrl>
+		<projectUrl>https://github.com/fgaravaglia/Umbrella.OpenXml</projectUrl>
+		<iconUrl>https://github.com/fgaravaglia/Umbrella.OpenXml/icon.png</iconUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>$description$</description>
+		<releaseNotes>Latest Stable Relase</releaseNotes>
+		<copyright>Copyright FG Innova Solutions 2018 - 2019</copyright>
+		<tags>Data Access Layer</tags>
+	</metadata>
+</package>
